@@ -34,9 +34,15 @@
             <a class="nav-link" href="">Vétérinaire</a>
           </li>
           {% endif %}
+          {% if app.user %}
+          <li>
+            <a class="nav-link" href="{{ path ('app_logout') }}">Déconnexion</a>
+          </li>
+          {% else %}
           <li>
             <a class="nav-link" href="{{ path ('app_login') }}">Connexion</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>

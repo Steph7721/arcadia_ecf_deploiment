@@ -3,17 +3,17 @@
     <div class="col-12 col-lg-4">
       <p>Nos horaires</p>
       <p>du mardi au dimanche<br/>
-      de h à h</p>
+      de {{ arcadia.openHoraire|date("G-i") }}h à {{ arcadia.closeHoraire|date("G-i") }}h</p>
     </div>
     <div class="col-6 col-lg-4">
       <p>Adresse</p>
-        <p> <br/>
-        </p>
+        <p> {{ arcadia.adresse|raw }}<br/>
+        {{ arcadia.ville|raw }}</p>
       </div>
       <div class="col-6 col-lg-4">
         <p>Contact</p>
-          <p><br/>
-          </p>
+          <p>{{ arcadia.email|raw }}<br/>
+          {{ arcadia.telephone|raw }}</p>
         </p>
       </div>
     </div>
