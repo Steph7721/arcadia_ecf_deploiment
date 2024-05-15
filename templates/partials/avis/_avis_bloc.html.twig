@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+        <h2 class="text-center text-secondary p-3"> Ce que nos clients penses de nous</h2>
+    </div>
+    <div class="container w-50">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for avis in slider %}
+                <div class="swiper-slide">
+                    <div class='bg-secondary rounded text-white p-3'>
+                        <div class="d-flex justify-content-between">
+                            <p>{{avis.pseudo}}</p>
+                            <p>{{ avis.createdAt|date("d/m/y")}}</p>
+                        </div>
+                        <div class=" p-2 text-center">{{ avis.content|raw}}  </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

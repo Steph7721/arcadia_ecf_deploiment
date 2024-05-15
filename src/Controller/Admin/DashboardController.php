@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Arcadia;
+use App\Entity\Avis;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -45,5 +46,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-chart-line');
         yield MenuItem::linkToCrud('Arcadia', 'fa fa-home', Arcadia::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Avis', 'fas fa-star', Avis::class);
+        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home');
     }
 }

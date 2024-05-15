@@ -1,0 +1,25 @@
+<div class='p-3'>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#avis">
+                    Laisser un avis
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="avis" tabindex="-1" aria-labelledby="Avis" aria-hidden='true' >
+    <div class="modal-dialog">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Laisser un avis</h5>
+            </div>
+            <div class="modal-body d-flex justify-content-center id='ajout-avis">
+                {{ form(avisform) }}
+            </div>
+        </div>
+    </div>
+</div>
