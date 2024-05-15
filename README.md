@@ -30,3 +30,35 @@ Créer un nouveau projet symfony
 symfony new my_project --webapp 
 Relancer l’indexation dans VSCODE : CTRL+MAJ+P -> Intelephense: index 
 Lancer un serveur symfony server:start
+
+Installer webpack Encore 2.1:
+
+composer require symfony/webpack-encore-bundle 
+
+npm install 
+
+Pour compiler en dev 
+npm run dev 
+
+Pour compiler en prod 
+npm run build 
+
+Pour compiler en temps réel les changements 
+npm run watch
+
+Webpack Encore : SASS et Bootstrap:
+
+npm install sass-loader sass --save-dev 
+Modifier webpack.config.js et ajouter .enableSassLoader() 
+
+npm install bootstrap --save-dev 
+
+Webpack Encore : Images 
+
+npm install file-loader --save-dev 
+Modifier webpack.config.js et ajouter
+
+.copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+        })
