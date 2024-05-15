@@ -62,3 +62,11 @@ Modifier webpack.config.js et ajouter
         from: './assets/images',
         to: 'images/[path][name].[ext]',
         })
+
+Easyadmin:
+
+Installation du bundle easyadmin 
+composer require easycorp/easyadmin-bundle
+
+Installation admin dashboard
+php bin/console make:admin:dashboard
