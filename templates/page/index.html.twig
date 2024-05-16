@@ -4,6 +4,12 @@
 
 {% block body %}
 
+{% for avis in app.flashes('success') %}
+<div class='alert alert-success'>
+    {{ avis }}
+</div>
+{% endfor %}
+
 <div class="hero-scene text-white">
     <div class="hero-scene-content">
         <p class='p-1'>{{arcadia.description | raw}}</p>

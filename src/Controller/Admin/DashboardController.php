@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Animal;
 use App\Entity\Arcadia;
 use App\Entity\Avis;
+use App\Entity\Contact;
 use App\Entity\Habitat;
 use App\Entity\Race;
 use App\Entity\Service;
@@ -56,6 +57,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Races', 'fas fa-otter', Race::class);
         yield MenuItem::linkToCrud('Services', 'fas fa-briefcase', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-star', Avis::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-envelope', Contact::class);
         yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home');
     }
 }
