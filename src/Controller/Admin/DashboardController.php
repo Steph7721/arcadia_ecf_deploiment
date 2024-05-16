@@ -7,6 +7,7 @@ use App\Entity\Arcadia;
 use App\Entity\Avis;
 use App\Entity\Habitat;
 use App\Entity\Race;
+use App\Entity\Service;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -53,6 +54,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Animaux', 'fas fa-hippo', Animal::class);
         yield MenuItem::linkToCrud('Habitats', 'fas fa-house-chimney-window', Habitat::class);
         yield MenuItem::linkToCrud('Races', 'fas fa-otter', Race::class);
+        yield MenuItem::linkToCrud('Services', 'fas fa-briefcase', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-star', Avis::class);
         yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home');
     }
