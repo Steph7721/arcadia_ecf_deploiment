@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\RapportVeterinaire;
+use App\Entity\RapportEmploye;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -11,22 +11,19 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
-class RapportVeterinaireCrudController extends AbstractCrudController
+class RapportEmployeCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return RapportVeterinaire::class;
+        return RapportEmploye::class;
     }
-
     public function configureFields(string $pageName): iterable
     {
         yield DateField::new('date');
         yield AssociationField::new('user');
         yield AssociationField::new('animal');
-        yield TextEditorField::new('etat');
-        yield TextEditorField::new('repasConseille');
-        yield TextEditorField::new('grammageConseille');
-        yield TextEditorField::new('detail');
+        yield TextEditorField::new('repasDonne');
+        yield TextEditorField::new('grammageDonne');
     }
 
     public function configureActions(Actions $actions): Actions

@@ -8,6 +8,7 @@ use App\Entity\Avis;
 use App\Entity\Contact;
 use App\Entity\Habitat;
 use App\Entity\Race;
+use App\Entity\RapportEmploye;
 use App\Entity\RapportVeterinaire;
 use App\Entity\Service;
 use App\Entity\User;
@@ -57,6 +58,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Habitats', 'fas fa-house-chimney-window', Habitat::class);
         yield MenuItem::linkToCrud('Races', 'fas fa-otter', Race::class);
         yield MenuItem::linkToCrud('Rapports vétérinaire', 'fas fa-file', RapportVeterinaire::class);
+        yield MenuItem::linkToCrud('Rapports émployé', 'fas fa-file', RapportEmploye::class);
         yield MenuItem::linkToCrud('Services', 'fas fa-briefcase', Service::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-star', Avis::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-envelope', Contact::class);

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employe{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+<div class='alert alert-success'>
+    {{ message }}
+</div>
+{% endfor %}
+
+<div class="text-center text-secondary p-5">
+    <h1> Rapport Employé </h1>
+</div>
+
+<div class="container">
+{{ form(emform) }}
+</div>
+{% endblock %}
