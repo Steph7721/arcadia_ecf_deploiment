@@ -70,3 +70,20 @@ composer require easycorp/easyadmin-bundle
 
 Installation admin dashboard
 php bin/console make:admin:dashboard
+
+Vich/uploader-bundley
+
+Installation vich/uploader
+composer require vich/uploader-bundle
+
+Modifier le fichier config/packages/vich_uploader.yaml
+    mappings:
+        zoo:
+            uri_prefix: /images/zoo
+            upload_destination: '%kernel.project_dir%/public/images/zoo'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+Modifier l'entité
+
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+#[Vich\Uploadable]

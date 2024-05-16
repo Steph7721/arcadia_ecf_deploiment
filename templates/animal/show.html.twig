@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animal{% endblock %}
+
+{% block body %}
+<div class="container d-flex align-self-center justify-content-center p-5">
+    <div class="row flex-lg-row-reverse">
+        <div class="container d-flex justify-content-center">
+            <h1>{{ animal.prenom|raw }}</h1>
+        </div>
+        <div>
+            {% if animal.imageName %}
+			    <img src="{{ vich_uploader_asset(animal, 'imageFile') }}" class="card-img-top rounded" alt="affiche {{ animal.prenom }}">
+		    {% else %}
+			    <img src="{{ asset('build/images/default-movie.png') }}" class="card-img-top" alt="affiche {{ animal.prenom }}">
+		    {% endif %}
+        </div>
+        <div>
+            <div class="row d-flex">
+            <p class="lead">Race: {{ animal.race|raw }}</p></br>
+            <p class="lead">Habitat: {{ animal.habitat|raw }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

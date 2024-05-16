@@ -2,8 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Animal;
 use App\Entity\Arcadia;
 use App\Entity\Avis;
+use App\Entity\Habitat;
+use App\Entity\Race;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -16,6 +19,7 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Seul un administrateur peut accerder à cette page!');
         return $this->render('admin/dashboard.html.twig');
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
@@ -46,6 +50,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-chart-line');
         yield MenuItem::linkToCrud('Arcadia', 'fa fa-home', Arcadia::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Animaux', 'fas fa-hippo', Animal::class);
+        yield MenuItem::linkToCrud('Habitats', 'fas fa-house-chimney-window', Habitat::class);
+        yield MenuItem::linkToCrud('Races', 'fas fa-otter', Race::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-star', Avis::class);
         yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home');
     }

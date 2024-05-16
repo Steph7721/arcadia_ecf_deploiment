@@ -1,0 +1,15 @@
+<div class="col-md-4 my-2 pt-5 d-flex">
+	<div class="card w-100">
+		{% if zoo.imageName %}
+			<img src="{{ vich_uploader_asset(zoo, 'imageFile') }}" class="card-img-top" alt="affiche {{ zoo.prenom }}">
+		{% else %}
+			<img src="{{ asset('build/images/default-movie.png') }}" class="card-img-top" alt="affiche {{ zoo.prenom }}">
+		{% endif %}
+		<div class="card-body">
+			<h5 class="card-title">{{ zoo.prenom }}</h5>
+			<div class="container p-4 text-center">
+				<a href="{{ path('app_animal_show', {'id': zoo.id}) }}" class="btn btn-secondary">Plus d'info</a>
+			</div>
+		</div>
+	</div>
+</div>

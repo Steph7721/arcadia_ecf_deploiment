@@ -1,0 +1,8 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        zoo:
+            uri_prefix: /images/zoo
+            upload_destination: '%kernel.project_dir%/public/images/zoo'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
