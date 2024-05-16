@@ -45,9 +45,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: 'users')]
     private Collection $role;
 
+    /**
+     * @var Collection<int, RapportVeterinaire>
+     */
+    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'user')]
+    private Collection $rapportVeterinaires;
+
+    /**
+     * @var Collection<int, RapportEmploye>
+     */
+    #[ORM\OneToMany(targetEntity: RapportEmploye::class, mappedBy: 'user')]
+    private Collection $rapportEmployes;
+
     public function __construct()
     {
         $this->role = new ArrayCollection();
+        $this->rapportVeterinaires = new ArrayCollection();
+        $this->rapportEmployes = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -174,4 +188,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+     /**
+     * @return Collection<int, RapportVeterinaire>
+     */
+    public function getRapportVeterinaires(): Collection
+    {
+        return $this->rapportVeterinaires;
+    }
+
+    public function addRapportVeterinaire(RapportVeterinaire $rapportVeterinaire): static
+    {
+        if (!$this->rapportVeterinaires->contains($rapportVeterinaire)) {
+            $this->rapportVeterinaires->add($rapportVeterinaire);
+            $rapportVeterinaire->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRapportVeterinaire(RapportVeterinaire $rapportVeterinaire): static
+    {
+        if ($this->rapportVeterinaires->removeElement($rapportVeterinaire)) {
+            // set the owning side to null (unless already changed)
+            if ($rapportVeterinaire->getUser() === $this) {
+                $rapportVeterinaire->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    /**
+         * @return Collection<int, RapportEmploye>
+         */
+        public function getRapportEmployes(): Collection
+        {
+            return $this->rapportEmployes;
+        }
+
+        public function addRapportEmploye(RapportEmploye $rapportEmploye): static
+        {
+            if (!$this->rapportEmployes->contains($rapportEmploye)) {
+                $this->rapportEmployes->add($rapportEmploye);
+                $rapportEmploye->setUser($this);
+            }
+
+            return $this;
+        }
+
+        public function removeRapportEmploye(RapportEmploye $rapportEmploye): static
+        {
+            if ($this->rapportEmployes->removeElement($rapportEmploye)) {
+                // set the owning side to null (unless already changed)
+                if ($rapportEmploye->getUser() === $this) {
+                    $rapportEmploye->setUser(null);
+                }
+            }
+
+            return $this;
+        }
 }

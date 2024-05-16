@@ -33,11 +33,31 @@ class Animal
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    /**
+     * @var Collection<int, RapportVeterinaire>
+     */
+    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'animal')]
+    private Collection $rapportVeterinaires;
+
     #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?Race $race = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?Habitat $habitat = null;
+
+    /**
+     * @var Collection<int, RapportEmploye>
+     */
+    #[ORM\OneToMany(targetEntity: RapportEmploye::class, mappedBy: 'animal')]
+    private Collection $rapportEmployes;
+
+    /**
+     * @var Collection<int, RapportVeterinaire>
+     */
+    #[ORM\OneToMany(targetEntity: RapportVeterinaire::class, mappedBy: 'animaletat')]
+    private Collection $etat;
+
+
 
     public function __construct()
     {
@@ -64,6 +84,36 @@ class Animal
     public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RapportVeterinaire>
+     */
+    public function getRapportVeterinaires(): Collection
+    {
+        return $this->rapportVeterinaires;
+    }
+
+    public function addRapportVeterinaire(RapportVeterinaire $rapportVeterinaire): static
+    {
+        if (!$this->rapportVeterinaires->contains($rapportVeterinaire)) {
+            $this->rapportVeterinaires->add($rapportVeterinaire);
+            $rapportVeterinaire->setAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRapportVeterinaire(RapportVeterinaire $rapportVeterinaire): static
+    {
+        if ($this->rapportVeterinaires->removeElement($rapportVeterinaire)) {
+            // set the owning side to null (unless already changed)
+            if ($rapportVeterinaire->getAnimal() === $this) {
+                $rapportVeterinaire->setAnimal(null);
+                   }
+        }
 
         return $this;
     }
@@ -135,5 +185,65 @@ class Animal
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    /**
+     * @return Collection<int, RapportEmploye>
+     */
+    public function getRapportEmployes(): Collection
+    {
+        return $this->rapportEmployes;
+    }
+
+    public function addRapportEmploye(RapportEmploye $rapportEmploye): static
+    {
+        if (!$this->rapportEmployes->contains($rapportEmploye)) {
+            $this->rapportEmployes->add($rapportEmploye);
+            $rapportEmploye->setAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRapportEmploye(RapportEmploye $rapportEmploye): static
+    {
+        if ($this->rapportEmployes->removeElement($rapportEmploye)) {
+            // set the owning side to null (unless already changed)
+            if ($rapportEmploye->getAnimal() === $this) {
+                $rapportEmploye->setAnimal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RapportVeterinaire>
+     */
+    public function getEtat(): Collection
+    {
+        return $this->etat;
+    }
+
+    public function addEtat(RapportVeterinaire $etat): static
+    {
+        if (!$this->etat->contains($etat)) {
+            $this->etat->add($etat);
+            $etat->setAnimaletat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtat(RapportVeterinaire $etat): static
+    {
+        if ($this->etat->removeElement($etat)) {
+            // set the owning side to null (unless already changed)
+            if ($etat->getAnimaletat() === $this) {
+                $etat->setAnimaletat(null);
+            }
+        }
+
+        return $this;
     }
 }
