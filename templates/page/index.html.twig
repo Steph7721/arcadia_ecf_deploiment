@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arcadia{% endblock %}
+
+{% block body %}
+
+{% for avis in app.flashes('success') %}
+<div class='alert alert-success'>
+    {{ avis }}
+</div>
+{% endfor %}
+
+<div class="hero-scene text-white">
+    <div class="hero-scene-content">
+        <p class='p-1'>{{arcadia.description | raw}}</p>
+    </div>
+</div>
+
+<section class="m-3">
+
+    <div class="container bg-secondary text-white p-4 rounded">
+        <h2 class="text-center">Nos habitats</h2>
+        <div class="row row-cols-2 align-items-center">
+            <div class="col image-card text-white">
+                <img class="w-100 rounded" src="{{ asset('images/lion.jpg') }}">
+            </div>
+            <div class="col">
+                <p class="text-justify">Venez découvrir notre parc zoologique en découvrant les animaux par habitat.<br/>
+                    De la savane à la jungle en passant par les marais. Vous pourrez apercevoir nos
+                    lions, nos gorilles ou peut être l’œil d’un de nos alligator sortir de l’eau.</p>
+                </div>
+            </div>
+            <div class="text-center pt-4">
+                <a href="/habitat" class="btn btn-dark">Voir Habitats</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="container p-4 text-secondary rounded">
+            <h2 class="text-center">Nos services</h2>
+            <div class="row row-cols-2 align-items-center">
+                <div class="col">
+                    <p class="text-justify">Lors de votre visite n’hésitez pas a demander
+                        l’accompagnement d’un guide gratuit. Faire le tour du parc en train! Ou vous
+                        arrêtez manger dans un cadre magique</p>
+                    </div>
+                    <div class="col image-card text-white">
+                        <img class="w-100 rounded" src="{{ asset('images/safari-train.jpg')}}">
+                    </div>
+                </div>
+                <div class="text-center pt-4">
+                    <a href="/service" class="btn btn-secondary">Voir Services</a>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+<div>
+    {{include('partials/avis/_avis_bloc.html.twig')}}
+    </div>
+    <div>
+    {{include('partials/avis/_avis_form.html.twig')}}
+</div>
+{% endblock %}

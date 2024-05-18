@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+    {% for zoo in service %}
+    {% include "partials/service/_service_bloc.html.twig" %}
+    {% endfor %}
+
+{% endblock %}
+
