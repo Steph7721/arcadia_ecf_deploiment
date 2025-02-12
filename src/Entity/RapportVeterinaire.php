@@ -40,11 +40,6 @@ class RapportVeterinaire
     #[ORM\ManyToOne(inversedBy: 'etat')]
     private ?Animal $animaletat = null;
 
-    public function __construct()
-    {
-        $this->nourritures = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
