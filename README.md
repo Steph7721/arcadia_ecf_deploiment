@@ -2,10 +2,11 @@ Arcadia
 
 Environnement technique:
 
-PHP >= 8.1 et MYSQL >= 5.7 (WAMP) 
+PHP >= 8.2 + Apache >= 2.4 (XAMP) et MYSQL >= 8.0.36 
 Symfony 5.8.16 
 Bootstrap 5.3 
-Easyadmin 4.7 VSCode
+Easyadmin 4.10 
+VSCode
 
 Extensions VSCODE:
 
@@ -22,14 +23,15 @@ PHPDoc Comment Prettier - Code formatter
 Installation du projet Arcadia:
 
 Avoir définit php dans les variables d’environnement et avoir Xdebug d’activé 
-Installer composer 
-Installer symfony cli 
+Installer composer 2.7.4
+Installer symfony cli 5.1.16
 Vérifier les requirements
 symfony check:requirement 
 Créer un nouveau projet symfony 
 symfony new my_project --webapp 
 Relancer l’indexation dans VSCODE : CTRL+MAJ+P -> Intelephense: index 
 Lancer un serveur symfony server:start
+Creer fichier .env.local et ajouter les variables de la BDD en localhost
 
 Installer webpack Encore 2.1:
 
@@ -63,7 +65,7 @@ Modifier webpack.config.js et ajouter
         to: 'images/[path][name].[ext]',
         })
 
-Easyadmin:
+Easyadmin 4.10:
 
 Installation du bundle easyadmin 
 composer require easycorp/easyadmin-bundle
@@ -71,7 +73,7 @@ composer require easycorp/easyadmin-bundle
 Installation admin dashboard
 php bin/console make:admin:dashboard
 
-Vich/uploader-bundle
+Vich/uploader-bundle 2.3
 
 Installation vich/uploader composer require vich/uploader-bundle
 
@@ -138,3 +140,11 @@ public function getImageSize(): ?int
 {
     return $this->imageSize;
 }
+
+Installation de swiper
+
+npm install swiper
+
+Installation extension intl
+
+composer require ext-intl
