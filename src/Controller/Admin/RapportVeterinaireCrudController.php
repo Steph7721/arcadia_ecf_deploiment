@@ -39,6 +39,6 @@ class RapportVeterinaireCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setDefaultSort(['date' => 'DESC']);
+        ->setDefaultSort(['id' => 'DESC']);
     }
 }
