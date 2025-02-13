@@ -17,7 +17,7 @@ class RapportEmploye
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     private ?string $repasDonne = null;
 
     #[ORM\Column]

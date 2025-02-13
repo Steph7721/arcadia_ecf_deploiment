@@ -28,13 +28,13 @@ class RapportVeterinaire
     #[ORM\ManyToOne(inversedBy: 'rapportVeterinaires')]
     private ?Animal $animal = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     private ?string $repasConseille = null;
 
     #[ORM\Column]
     private ?int $grammageConseille = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     private ?string $etat = null;
 
     #[ORM\ManyToOne(inversedBy: 'etat')]

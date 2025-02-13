@@ -24,9 +24,6 @@ class Habitat
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $commentaireHabitat = null;
-
     #[Vich\UploadableField(mapping: 'zoo', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
@@ -81,18 +78,6 @@ class Habitat
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCommentaireHabitat(): ?string
-    {
-        return $this->commentaireHabitat;
-    }
-
-    public function setCommentaireHabitat(?string $commentaireHabitat): static
-    {
-        $this->commentaireHabitat = $commentaireHabitat;
 
         return $this;
     }

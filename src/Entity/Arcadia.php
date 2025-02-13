@@ -25,16 +25,16 @@ class Arcadia
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $closeHoraire = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 150)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 30)]
     private ?string $telephone = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 150)]
     private ?string $adresse = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $ville = null;
 
     /**

@@ -22,10 +22,10 @@ class Avis
     #[ORM\Column]
     private ?bool $active = false;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 150)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     private ?string $pseudo = null;
 
     #[ORM\Column]
