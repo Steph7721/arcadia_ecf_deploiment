@@ -18,7 +18,12 @@
         <div>
             <div class="row d-flex">
             <p class="lead">Race: {{ animal.race|raw }}</p></br>
-            <p class="lead">Habitat: {{ animal.habitat|raw }}</p>
+            <p class="lead">Habitat: {{ animal.habitat|raw }}</p></br>
+            <p class="lead">Etat: {{ rapportVeterinaires.etat|raw }}</p></br>
+            <p class="lead">Repas Conseillé: {{ rapportVeterinaires.repasConseille|raw }}</p></br>
+            <p class="lead">Grammage Conseillé: {{ rapportVeterinaires.grammageConseille|raw }}g</p>
+            <p class="lead">Repas Donnée: {{ rapportEmployes.repasDonne|raw }}</p></br>
+            <p class="lead">Grammage Donnée: {{ rapportEmployes.grammageDonne|raw }}g</p></br>
             </div>
         </div>
     </div>
