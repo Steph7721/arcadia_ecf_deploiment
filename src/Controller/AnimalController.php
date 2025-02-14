@@ -30,7 +30,7 @@ class AnimalController extends AbstractController
     {
         $arcadia = $arcadiaRepository->findOneBy(['id' => '1']);
         $rapportVeterinaires = $rapportVeterinaireRepository->findOneBy(['animal' => $animal->getId()], ['date' => 'DESC']);
-        $rapportEmployes = $rapportEmployeRepository->findOneBy(['animal' => $animal->getId()], ['date' => 'DESC']);
+        $rapportEmployes = $rapportEmployeRepository->findOneBy(['animal' => $animal->getId()], ['id' => 'DESC']);
         return $this->render('animal/show.html.twig', [
             'animal' => $animal,
             'arcadia' => $arcadia,
